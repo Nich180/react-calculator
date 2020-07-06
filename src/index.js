@@ -4,9 +4,26 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import grey from '@material-ui/core/colors/grey';
+import amber from '@material-ui/core/colors/amber';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: grey[600],
+    },
+    secondary: {
+      main: amber[500],
+    },
+  },
+});
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
